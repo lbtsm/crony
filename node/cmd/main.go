@@ -23,10 +23,10 @@ func main() {
 		os.Exit(1)
 	}
 	//service.RegisterTables(dbclient.GetMysqlDB())
-	//if err = nodeServer.Register(); err != nil {
-	//	logger.GetLogger().Error(fmt.Sprintf("register node into etcd error:%s", err.Error()))
-	//	os.Exit(1)
-	//}
+	if err = nodeServer.Register(); err != nil {
+		logger.GetLogger().Error(fmt.Sprintf("register node into etcd error:%s", err.Error()))
+		os.Exit(1)
+	}
 	if err = nodeServer.Run(); err != nil {
 		logger.GetLogger().Error(fmt.Sprintf("node run error: %s", err.Error()))
 		os.Exit(1)
